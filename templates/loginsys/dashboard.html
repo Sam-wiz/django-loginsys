@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <p>Welcome, {{ user.username }}!</p>
+    <img src="{{ user.profile.image.url }}" alt="Profile Picture">
+    <p>Email: {{ user.email }}</p> 
+    <p>First Name: {{ user.profile.first_name }}</p>
+    <p>Last Name: {{ user.profile.last_name }}</p>
+    <p>Bio: {{ user.profile.bio }}</p>
+    <p>Phone: {{ user.profile.phone }}</p>
+    <p>Country: {{ user.profile.country }}</p>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
